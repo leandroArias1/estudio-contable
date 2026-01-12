@@ -41,6 +41,9 @@ function Contact() {
     <section id="contact">
       <div className="container">
         <h2>Contacto</h2>
+        <p className="contact-note">
+          Tus datos son confidenciales y solo se utilizarán para responder tu consulta.
+        </p>
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <input

@@ -5,7 +5,6 @@ import About from './components/About/About'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 
-import './styles/index.css'
 
 function App() {
   return (

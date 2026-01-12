@@ -2,11 +2,11 @@ function Hero() {
   return (
     <section className="hero">
       <div className="container">
-        <h1>Asesoramiento contable claro para tomar mejores decisiones</h1>
+        <h1>Asesoramiento contable claro para que tomes mejores decisiones</h1>
 
         <p>
-          Acompañamos a profesionales y pequeñas empresas en la gestión
-          contable, impositiva y financiera, con un enfoque simple y confiable.
+          Acompañamos a profesionales y pequeñas empresas con soluciones
+          contables, impositivas y financieras adaptadas a cada etapa.
         </p>
 
         <a href="#contact" className="btn">

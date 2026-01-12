@@ -8,24 +8,21 @@ function Services() {
           <div>
             <h3>Asesoramiento impositivo</h3>
             <p>
-              Planificación y análisis impositivo para reducir riesgos
-              fiscales y optimizar la carga tributaria de tu actividad.
+              Optimizamos tu carga fiscal y te ayudamos a cumplir con tus obligaciones sin sorpresas ni errores.
             </p>
           </div>
 
           <div>
             <h3>Contabilidad general</h3>
             <p>
-              Registración contable ordenada y confección de estados
-              contables claros para una mejor toma de decisiones.
+              Registración contable clara y ordenada para que tengas control real de tu negocio.
             </p>
           </div>
 
           <div>
             <h3>Monotributo y autónomos</h3>
             <p>
-              Altas, recategorizaciones y seguimiento permanente de
-              obligaciones fiscales y previsionales.
+              Gestión completa del monotributo y autónomos para que te enfoques en trabajar, no en trámites.
             </p>
           </div>
         </div>

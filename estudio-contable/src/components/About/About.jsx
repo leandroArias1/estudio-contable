@@ -5,9 +5,10 @@ function About() {
         <h2>Sobre el estudio</h2>
 
         <p>
-          Somos un estudio contable con experiencia en el acompañamiento
-          de profesionales y pequeñas empresas. Trabajamos de forma clara,
-          cercana y responsable, brindando soluciones adaptadas a cada cliente.
+          Somos un estudio contable orientado a acompañar a profesionales y
+          pequeñas empresas con un enfoque claro, cercano y estratégico.
+          Creemos que la contabilidad debe ser una herramienta para tomar
+          decisiones, no una complicación.
         </p>
       </div>
     </section>
