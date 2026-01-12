@@ -8,6 +8,8 @@ function Contact() {
     message: ''
   })
 
+  const [status, setStatus] = useState('')
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -17,18 +19,22 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setStatus('Enviando mensaje...')
 
-    emailjs.send(
-      'service_oyn6avp',
-      'template_8xkg0kc',
-      formData,
-      'qLl2lePC_g6a6D1xq'
-    ).then(() => {
-      alert('Mensaje enviado correctamente')
-      setFormData({ name: '', email: '', message: '' })
-    }).catch(() => {
-      alert('Error al enviar el mensaje')
-    })
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAIL_SERVICE,
+        import.meta.env.VITE_EMAIL_TEMPLATE,
+        formData,
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY
+      )
+      .then(() => {
+        setStatus('Mensaje enviado correctamente. Te responderemos a la brevedad.')
+        setFormData({ name: '', email: '', message: '' })
+      })
+      .catch(() => {
+        setStatus('Ocurrió un error. Por favor intentá nuevamente.')
+      })
   }
 
   return (
@@ -67,6 +73,8 @@ function Contact() {
           <button type="submit" className="btn">
             Enviar consulta
           </button>
+
+          {status && <p>{status}</p>}
         </form>
       </div>
     </section>
