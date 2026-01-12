@@ -1,9 +1,11 @@
-import Header from './components/Header'
-import Hero from './components/Hero'
-import Services from './components/Services'
-import About from './components/About'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import Header from './components/Header/Header'
+import Hero from './components/Hero/Hero'
+import Services from './components/Services/Services'
+import About from './components/About/About'
+import Contact from './components/Contact/Contact'
+import Footer from './components/Footer/Footer'
+
+import './styles/index.css'
 
 function App() {
   return (
