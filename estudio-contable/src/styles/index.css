@@ -13,6 +13,34 @@
   --transition: all 0.3s ease;
 }
 
+/* ================= FOCUS ACCESSIBILITY ================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+#services,
+#about,
+#contact {
+  transition: background-color 0.3s ease;
+}
+
+#services:hover,
+#about:hover {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.25);
+}
+
+
+
 /* ================= BASE ================= */
 
 html {
@@ -102,6 +130,11 @@ nav a {
   font-weight: 600;
   position: relative;
 }
+
+nav a:hover {
+  color: var(--secondary);
+}
+
 
 nav a::after {
   content: '';
@@ -248,10 +281,83 @@ nav a:hover::after {
   outline: none;
 }
 
+.contact-form p {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  transition: opacity 0.3s ease;
+}
+
+.contact-form p.success {
+  color: #16a34a;
+}
+
+.contact-form p.error {
+  color: #dc2626;
+}
+
+.contact-form input:disabled,
+.contact-form textarea:disabled {
+  background-color: #f1f5f9;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+
 .contact-form button {
   margin-top: 10px;
   align-self: center;
 }
+
+.contact-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.contact-note {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-top: 10px;
+}
+
+
+/* ================= CTA ================= */
+
+.cta {
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+  color: #ffffff;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.cta p {
+  max-width: 620px;
+  margin: 0 auto 36px auto;
+  font-size: 1.1rem;
+  color: #e5e7eb;
+}
+
+.cta .btn {
+  background-color: var(--accent);
+  color: #000;
+}
+
+.cta .btn:hover {
+  background-color: var(--accent-hover);
+}
+
+
+
 
 /* ================= FOOTER ================= */
 
@@ -259,16 +365,19 @@ footer {
   background-color: var(--dark);
   color: #e5e7eb;
   text-align: center;
-  padding: 32px 20px;
+  padding: 40px 20px;
   font-size: 0.9rem;
 }
 
 footer p {
-  font-weight: 600;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
 footer small {
+  display: block;
   color: #94a3b8;
+  margin-top: 4px;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -294,5 +403,19 @@ footer small {
 
   nav a {
     margin-left: 18px;
+    padding: 6px 0;
   }
+
+  .btn {
+    width: 100%;
+    padding: 16px 0;
+  }
+  .cta h2 {
+    font-size: 2rem;
+  }
+
+  .cta p {
+    font-size: 1rem;
+  }
+
 }

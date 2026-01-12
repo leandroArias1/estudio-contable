@@ -8,18 +8,29 @@ function Contact() {
     message: ''
   })
 
-  const [status, setStatus] = useState('')
+  const [status, setStatus] = useState({
+    message: '',
+    type: '' // 'success' | 'error'
+  })
+
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
+
+    if (status.type === 'error') {
+      setStatus({ message: '', type: '' })
+    }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setStatus('Enviando mensaje...')
+
+    setLoading(true)
+    setStatus({ message: 'Enviando mensaje...', type: '' })
 
     emailjs
       .send(
@@ -29,11 +40,19 @@ function Contact() {
         import.meta.env.VITE_EMAIL_PUBLIC_KEY
       )
       .then(() => {
-        setStatus('Mensaje enviado correctamente. Te responderemos a la brevedad.')
+        setLoading(false)
+        setStatus({
+          message: 'Mensaje enviado correctamente. Te responderemos a la brevedad.',
+          type: 'success'
+        })
         setFormData({ name: '', email: '', message: '' })
       })
       .catch(() => {
-        setStatus('Ocurrió un error. Por favor intentá nuevamente.')
+        setLoading(false)
+        setStatus({
+          message: 'Ocurrió un error al enviar el mensaje. Intentá nuevamente.',
+          type: 'error'
+        })
       })
   }
 
@@ -41,9 +60,6 @@ function Contact() {
     <section id="contact">
       <div className="container">
         <h2>Contacto</h2>
-        <p className="contact-note">
-          Tus datos son confidenciales y solo se utilizarán para responder tu consulta.
-        </p>
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <input
@@ -52,6 +68,7 @@ function Contact() {
             placeholder="Nombre"
             value={formData.name}
             onChange={handleChange}
+            disabled={loading}
             required
           />
 
@@ -61,6 +78,7 @@ function Contact() {
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
+            disabled={loading}
             required
           />
 
@@ -70,14 +88,23 @@ function Contact() {
             rows="5"
             value={formData.message}
             onChange={handleChange}
+            disabled={loading}
             required
           />
 
-          <button type="submit" className="btn">
-            Enviar consulta
+          <button type="submit" className="btn" disabled={loading}>
+            {loading ? 'Enviando...' : 'Enviar consulta'}
           </button>
 
-          {status && <p>{status}</p>}
+          {status.message && (
+            <p>
+              {status.message}
+            </p>
+          )}
+
+          <p>
+            Tus datos son confidenciales y solo se utilizarán para responder tu consulta.
+          </p>
         </form>
       </div>
     </section>

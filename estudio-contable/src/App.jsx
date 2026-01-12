@@ -4,6 +4,7 @@ import Services from './components/Services/Services'
 import About from './components/About/About'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
+import CTA from './components/CTA/CTA'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Hero />
       <Services />
       <About />
+      <CTA />
       <Contact />
       <Footer />
     </>
